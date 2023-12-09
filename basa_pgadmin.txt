@@ -1,0 +1,24 @@
+CREATE TABLE tb_tipo (
+  cod_tipo serial,
+  descripcion VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (cod_tipo ))
+  ;
+  
+CREATE TABLE  tb_producto (
+  cod_producto SERIAL,
+  cant_Salida INT NULL DEFAULT NULL,
+  guia_Salida VARCHAR(45) NULL DEFAULT NULL,
+  cant_Ingreso INT NULL DEFAULT NULL,
+  guia_Ingreso VARCHAR(45) NULL DEFAULT NULL,
+  merma INT NULL DEFAULT NULL,
+  fecha DATE NULL DEFAULT NULL,
+  cod_tipo INT NOT NULL,
+  PRIMARY KEY (cod_producto ),
+  CONSTRAINT FK_001
+    FOREIGN KEY (cod_tipo )
+    REFERENCES tb_tipo (cod_tipo ))
+	;
+	
+	
+	select * from tb_tipo;
+	select * from tb_producto ;
