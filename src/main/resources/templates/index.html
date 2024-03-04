@@ -169,16 +169,16 @@
 					</div>
 					<div class="modal-body">
 						<form method="POST" id="idRegistra" th:action="@{/grabar}">
-							<input type="hidden" id="idCodigo" name="Codigo" value="0">
+							<input type="hidden" id="idCodigo" name="Codigo" value=0>
 							<div class="container">
 								<div class="row">
 									<div class="form-group has-feedback col-md-7">
 										<label for="exampleInputEmail1"><b>Insumos</b></label><br>
 										<i class="fas fa-prescription-bottle-alt form-control-feedback2"></i>
 										<select class="form-control" name="Insumo" id="idInsumo">
-											<option value=" ">[Seleccione Insumo]</option>
+											<option value="">[Seleccione Insumo]</option>
 											<option th:each="x:${Tipo}" th:utext="${x.descripcion}"
-												th:value="${x.id_insumo}" />
+												th:value="${x.cod_Tipo}" />
 										</select>
 									</div>
 									<div class="form-group has-feedback col-md-5">
@@ -273,7 +273,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="x:${Tipo}">
-						<td th:text="${x.id_insumo}"></td>
+						<td th:text="${x.cod_Tipo}"></td>
 						<td th:text="${x.descripcion}"></td>
 						<td><a class="btn btn-info btn-editar-ins" data-toggle="modal" data-target="#"><i
 									class="far fa-edit"></i></a></td>
@@ -338,7 +338,7 @@
 			cod = $(this).parents("tr").find("td")[0].innerHTML;
 			$.get("buscar?Codigo=" + cod, function (response) {
 				$("#idCodigo").val(response.id_serigrafiado);
-				$("#idInsumo").val(response.tipo.id_insumo);
+				$("#idInsumo").val(response.tipo.cod_Tipo);
 				$("#usr1").val(response.fecha);
 				$("#CSalida").val(response.cant_Salida);
 				$("#GSalida").val(response.guia_Salida);

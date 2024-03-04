@@ -50,7 +50,7 @@ public class ProductoController {
 			sm.setMerma(mer);
 
 			Tipo tm = new Tipo();
-			tm.setId_insumo(ins);
+			tm.setCod_Tipo(ins);
 			sm.setTipo(tm);
 
 			if (cod == 0) {
@@ -103,7 +103,7 @@ public class ProductoController {
 					serTipo.grabar(tm);
 					redirect.addFlashAttribute("MENSAJE", "INSUMO REGISTRADO");
 				} else {
-					tm.setId_insumo(cod);
+					tm.setCod_Tipo(cod);
 					serTipo.actualizar(tm);
 					redirect.addFlashAttribute("MENSAJE", "INSUMO ACTUALIZADO");
 				}

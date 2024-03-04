@@ -1,8 +1,8 @@
 CREATE TABLE tb_tipo (
   cod_tipo serial,
   descripcion VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (cod_tipo ))
-  ;
+  PRIMARY KEY (cod_tipo )
+  );
   
 CREATE TABLE  tb_producto (
   cod_producto SERIAL,

@@ -27,12 +27,13 @@ public class Producto {
 	private int cant_Ingreso;
 	private String guia_Ingreso;
 	private int merma;
+	
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
 	
 	@ManyToOne
-	@JoinColumn(name="tipo_insumo")
+	@JoinColumn(name="cod_Tipo")
 	private Tipo tipo;
 
 	public Integer getCod_producto() {
@@ -83,8 +84,6 @@ public class Producto {
 		this.merma = merma;
 	}
 
-	
-
 	public LocalDate getFecha() {
 		return fecha;
 	}
@@ -100,6 +99,7 @@ public class Producto {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
+
 	
 	
 }

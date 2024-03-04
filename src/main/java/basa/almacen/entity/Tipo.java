@@ -18,19 +18,19 @@ public class Tipo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_insumo;
+	private Integer cod_Tipo;
 	private String descripcion;
 	
 	@OneToMany(mappedBy = "tipo")
 	@JsonIgnore
 	private List<Producto> listaProducto;
 
-	public Integer getId_insumo() {
-		return id_insumo;
+	public Integer getCod_Tipo() {
+		return cod_Tipo;
 	}
 
-	public void setId_insumo(Integer id_insumo) {
-		this.id_insumo = id_insumo;
+	public void setCod_Tipo(Integer cod_Tipo) {
+		this.cod_Tipo = cod_Tipo;
 	}
 
 	public String getDescripcion() {
@@ -48,6 +48,8 @@ public class Tipo {
 	public void setListaProducto(List<Producto> listaProducto) {
 		this.listaProducto = listaProducto;
 	}
+
 	
+
 	
 }
