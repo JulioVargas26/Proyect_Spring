@@ -20,12 +20,12 @@ public class Producto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cod_producto;
+	private Integer id_producto;
 
-	private int cant_Salida;
-	private String guia_Salida;
-	private int cant_Ingreso;
-	private String guia_Ingreso;
+	private int cant_salida;
+	private String guia_salida;
+	private int cant_ingreso;
+	private String guia_ingreso;
 	private int merma;
 	
 	@Temporal(TemporalType.DATE)
@@ -33,47 +33,71 @@ public class Producto {
 	private LocalDate fecha;
 	
 	@ManyToOne
-	@JoinColumn(name="cod_Tipo")
+	@JoinColumn(name="id_tipo")
 	private Tipo tipo;
 
-	public Integer getCod_producto() {
-		return cod_producto;
+	public Producto() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setCod_producto(Integer cod_producto) {
-		this.cod_producto = cod_producto;
+	@Override
+	public String toString() {
+		return "Producto [id_producto=" + id_producto + ", cant_salida=" + cant_salida + ", guia_salida=" + guia_salida
+				+ ", cant_ingreso=" + cant_ingreso + ", guia_ingreso=" + guia_ingreso + ", merma=" + merma + ", fecha="
+				+ fecha + ", tipo=" + tipo + "]";
 	}
 
-	public int getCant_Salida() {
-		return cant_Salida;
+	public Producto(Integer id_producto, int cant_salida, String guia_salida, int cant_ingreso, String guia_ingreso,
+			int merma, LocalDate fecha, Tipo tipo) {
+		super();
+		this.id_producto = id_producto;
+		this.cant_salida = cant_salida;
+		this.guia_salida = guia_salida;
+		this.cant_ingreso = cant_ingreso;
+		this.guia_ingreso = guia_ingreso;
+		this.merma = merma;
+		this.fecha = fecha;
+		this.tipo = tipo;
 	}
 
-	public void setCant_Salida(int cant_Salida) {
-		this.cant_Salida = cant_Salida;
+	public Integer getId_producto() {
+		return id_producto;
 	}
 
-	public String getGuia_Salida() {
-		return guia_Salida;
+	public void setId_producto(Integer id_producto) {
+		this.id_producto = id_producto;
 	}
 
-	public void setGuia_Salida(String guia_Salida) {
-		this.guia_Salida = guia_Salida;
+	public int getCant_salida() {
+		return cant_salida;
 	}
 
-	public int getCant_Ingreso() {
-		return cant_Ingreso;
+	public void setCant_salida(int cant_salida) {
+		this.cant_salida = cant_salida;
 	}
 
-	public void setCant_Ingreso(int cant_Ingreso) {
-		this.cant_Ingreso = cant_Ingreso;
+	public String getGuia_salida() {
+		return guia_salida;
 	}
 
-	public String getGuia_Ingreso() {
-		return guia_Ingreso;
+	public void setGuia_salida(String guia_salida) {
+		this.guia_salida = guia_salida;
 	}
 
-	public void setGuia_Ingreso(String guia_Ingreso) {
-		this.guia_Ingreso = guia_Ingreso;
+	public int getCant_ingreso() {
+		return cant_ingreso;
+	}
+
+	public void setCant_ingreso(int cant_ingreso) {
+		this.cant_ingreso = cant_ingreso;
+	}
+
+	public String getGuia_ingreso() {
+		return guia_ingreso;
+	}
+
+	public void setGuia_ingreso(String guia_ingreso) {
+		this.guia_ingreso = guia_ingreso;
 	}
 
 	public int getMerma() {
@@ -100,6 +124,7 @@ public class Producto {
 		this.tipo = tipo;
 	}
 
+	
 	
 	
 }

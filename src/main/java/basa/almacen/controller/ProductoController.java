@@ -40,24 +40,24 @@ public class ProductoController {
 
 			Producto sm = new Producto();
 
-			sm.setCant_Salida(cas);
-			sm.setGuia_Salida(gsa);
-			sm.setCant_Ingreso(cai);
-			sm.setGuia_Ingreso(gin);
+			sm.setCant_salida(cas);
+			sm.setGuia_salida(gsa);
+			sm.setCant_ingreso(cai);
+			sm.setGuia_ingreso(gin);
 			sm.setFecha(LocalDate.parse(fec));
 			
 			int mer= cai - cas;
 			sm.setMerma(mer);
 
 			Tipo tm = new Tipo();
-			tm.setCod_Tipo(ins);
+			tm.setId_tipo(ins);
 			sm.setTipo(tm);
 
 			if (cod == 0) {
 				serProd.grabar(sm);
 				redirect.addFlashAttribute("MENSAJE", "PRODUCTO REGISTRADO");
 			} else {
-				sm.setCod_producto(cod);
+				sm.setId_producto(cod);
 				serProd.actualizar(sm);
 				redirect.addFlashAttribute("MENSAJE", "PRODUCTO ACTUALIZADO");
 			}
@@ -103,7 +103,7 @@ public class ProductoController {
 					serTipo.grabar(tm);
 					redirect.addFlashAttribute("MENSAJE", "INSUMO REGISTRADO");
 				} else {
-					tm.setCod_Tipo(cod);
+					tm.setId_tipo(cod);
 					serTipo.actualizar(tm);
 					redirect.addFlashAttribute("MENSAJE", "INSUMO ACTUALIZADO");
 				}

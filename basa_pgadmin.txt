@@ -1,24 +1,27 @@
-CREATE TABLE tb_tipo (
-  cod_tipo serial,
-  descripcion VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (cod_tipo )
-  );
-  
-CREATE TABLE  tb_producto (
-  cod_producto SERIAL,
-  cant_Salida INT NULL DEFAULT NULL,
-  guia_Salida VARCHAR(45) NULL DEFAULT NULL,
-  cant_Ingreso INT NULL DEFAULT NULL,
-  guia_Ingreso VARCHAR(45) NULL DEFAULT NULL,
-  merma INT NULL DEFAULT NULL,
-  fecha DATE NULL DEFAULT NULL,
-  cod_tipo INT NOT NULL,
-  PRIMARY KEY (cod_producto ),
-  CONSTRAINT FK_001
-    FOREIGN KEY (cod_tipo )
-    REFERENCES tb_tipo (cod_tipo ))
-	;
-	
+
+	CREATE TABLE IF NOT EXISTS public.tb_tipo
+(
+    id_tipo integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    descripcion character varying(450),
+    CONSTRAINT tb_tipo_pkey PRIMARY KEY (id_tipo)
+)
+
+CREATE TABLE IF NOT EXISTS public.tb_producto
+(
+    id_producto integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    cant_salida integer,
+    guia_salida character varying(20),
+    cant_ingreso integer,
+    guia_ingreso character varying(20),
+    merma integer,
+    fecha date,
+    id_tipo integer,
+    CONSTRAINT tb_producto_pkey PRIMARY KEY (id_producto),
+    CONSTRAINT fk_producto_tipo FOREIGN KEY (id_tipo)
+        REFERENCES public.tb_tipo (id_tipo) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
 	
 	select * from tb_tipo;
 	select * from tb_producto ;

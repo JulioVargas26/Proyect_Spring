@@ -142,13 +142,13 @@
 				</thead>
 				<tbody>
 					<tr th:each="x:${Producto}">
-						<td th:text="${x.cod_producto}"></td>
+						<td th:text="${x.id_producto}"></td>
 						<td th:text="${x.tipo.descripcion}"></td>
 						<td th:text="${x.fecha}"></td>
-						<td th:text="${x.cant_Salida}"></td>
-						<td th:text="${x.guia_Salida}"></td>
-						<td th:text="${x.cant_Ingreso}"></td>
-						<td th:text="${x.guia_Ingreso}"></td>
+						<td th:text="${x.cant_salida}"></td>
+						<td th:text="${x.guia_salida}"></td>
+						<td th:text="${x.cant_ingreso}"></td>
+						<td th:text="${x.guia_ingreso}"></td>
 						<td th:text="${x.merma}"></td>
 						<td><a class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalSerigrafiado"><i
 									class="far fa-edit"></i></a></td>
@@ -178,7 +178,7 @@
 										<select class="form-control" name="Insumo" id="idInsumo">
 											<option value="">[Seleccione Insumo]</option>
 											<option th:each="x:${Tipo}" th:utext="${x.descripcion}"
-												th:value="${x.cod_Tipo}" />
+												th:value="${x.id_tipo}" />
 										</select>
 									</div>
 									<div class="form-group has-feedback col-md-5">
@@ -273,7 +273,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="x:${Tipo}">
-						<td th:text="${x.cod_Tipo}"></td>
+						<td th:text="${x.id_tipo}"></td>
 						<td th:text="${x.descripcion}"></td>
 						<td><a class="btn btn-info btn-editar-ins" data-toggle="modal" data-target="#"><i
 									class="far fa-edit"></i></a></td>
@@ -337,13 +337,13 @@
 			//obtener código del medicamento según el botón editar que se pulso
 			cod = $(this).parents("tr").find("td")[0].innerHTML;
 			$.get("buscar?Codigo=" + cod, function (response) {
-				$("#idCodigo").val(response.id_serigrafiado);
-				$("#idInsumo").val(response.tipo.cod_Tipo);
+				$("#idCodigo").val(response.id_producto);
+				$("#idInsumo").val(response.tipo.id_tipo);
 				$("#usr1").val(response.fecha);
-				$("#CSalida").val(response.cant_Salida);
-				$("#GSalida").val(response.guia_Salida);
-				$("#CIngreso").val(response.cant_Ingreso);
-				$("#GIngreso").val(response.guia_Ingreso);
+				$("#CSalida").val(response.cant_salida);
+				$("#GSalida").val(response.guia_salida);
+				$("#CIngreso").val(response.cant_ingreso);
+				$("#GIngreso").val(response.guia_ingreso);
 			})
 		});
 		
@@ -383,7 +383,7 @@
 			//obtener código del medicamento según el botón editar que se pulso
 			cod = $(this).parents("tr").find("td")[0].innerHTML;
 			$.get("buscarIns?CodigoIns=" + cod, function (response) {
-				$("#idCodigoIns").val(response.id_insumo);
+				$("#idCodigoIns").val(response.id_tipo);
 				$("#IdDescripcion").val(response.descripcion);
 			})
 		});
